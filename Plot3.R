@@ -8,10 +8,7 @@ firstrow <- test[1]
 numrows <- length(test)
 #=== Obtain required data set ===
 df.data <-read.table("household_power_consumption.txt",header = FALSE,sep = ";",skip = firstrow, nrows=numrows, stringsAsFactors = FALSE)
-nrow(df.data) # check to ensure have 2880 observations
-head(df.data)
 names(df.data)=c("date","time","global.active.power","global.reactive.power","voltage","global_intensity","sub.metering.1","sub.metering.2","sub.metering.3")
-names(df.data) 
 #=== Creation of Plot ===
 library(dplyr)
 daytime.data <- paste(df.data$date,df.data$time)%>%strptime(,format="%d/%m/%Y %H:%M:%S")
